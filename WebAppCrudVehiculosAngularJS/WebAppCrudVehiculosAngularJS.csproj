@@ -947,6 +947,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Listado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

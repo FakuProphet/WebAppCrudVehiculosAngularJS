@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using System.Web.Mvc;
 using WebAppCrudVehiculosAngularJS.Models;
 
@@ -11,9 +12,18 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
             return View();
         }
 
-        public ActionResult Listado()
+        public JsonResult Listado()
         {
-            return View();
+            List<Vehiculo> lista = new List<Vehiculo>();
+            try
+            {
+                lista = new Gestor().GetVehiculoListado();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            return Json(lista,JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult AgregarVehiculo(Vehiculo v)

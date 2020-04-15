@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Collections.Generic;
 
 namespace WebAppCrudVehiculosAngularJS.Models
 {
@@ -52,6 +53,45 @@ namespace WebAppCrudVehiculosAngularJS.Models
             }
             return miVehiculo;
         }
+
+
+
+        public List<Vehiculo> GetVehiculoListado()
+        {
+
+            List<Vehiculo> listado = new List<Vehiculo>();
+            Vehiculo miVehiculo = null;
+            using (SqlConnection con = new SqlConnection(cadena))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("Sp_get_listado_vehiculo", con);
+                com.CommandType = CommandType.StoredProcedure;
+              
+
+                SqlDataReader dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    miVehiculo = new Vehiculo();
+                    int id = dr.GetInt32(0);
+                    string marca = dr.GetString(2);
+                    string nombre = dr.GetString(1);
+                    string anio = dr.GetString(4);
+                    string dom = dr.GetString(5);
+                    string color = dr.GetString(3);
+                    miVehiculo.nombre = nombre;
+                    miVehiculo.marca = marca;
+                    miVehiculo.color = color;
+                    miVehiculo.anio = anio;
+                    miVehiculo.dominio = dom;
+                    miVehiculo.id = id;
+                    listado.Add(miVehiculo);
+
+                }
+            }
+            return listado;
+        }
+
+
 
 
 

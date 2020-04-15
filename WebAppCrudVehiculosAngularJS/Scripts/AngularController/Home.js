@@ -1,5 +1,5 @@
 ﻿    angular.module('miApp',[])
-    .controller('HomeController', function ($scope, $http) {
+    .controller('HomeAngularController', function ($scope, $http) {
 
         $scope.btn = "Save";
         $scope.saveData = function () {
@@ -17,4 +17,21 @@
             })
 
         }
+
+
+        $scope.vehiculos = [];
+        $http({
+            method: 'GET',
+            url: '/Home/Listado'
+
+        }).then(function (response) {
+            console.log(response.data);
+            $scope.vehiculos = response.data;
+        }, function (error) {
+
+        });
+
+
+
+
     });
