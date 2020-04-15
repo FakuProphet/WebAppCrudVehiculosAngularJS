@@ -37,11 +37,11 @@ namespace WebAppCrudVehiculosAngularJS.Models
                 if (dr.Read())
                 {
                     miVehiculo = new Vehiculo();
-                    string marca = dr.GetString(0);
+                    string marca = dr.GetString(2);
                     string nombre = dr.GetString(1);
-                    string anio = dr.GetString(0);
-                    string dom = dr.GetString(1);
-                    string color = dr.GetString(1);
+                    string anio = dr.GetString(4);
+                    string dom = dr.GetString(5);
+                    string color = dr.GetString(3);
                     miVehiculo.nombre = nombre;
                     miVehiculo.marca = marca;
                     miVehiculo.color = color;
@@ -55,20 +55,33 @@ namespace WebAppCrudVehiculosAngularJS.Models
 
 
 
-        public void agregarVehiculos(Vehiculo v)
+        public bool agregarVehiculos(Vehiculo v)
         {
+            bool bandera = false;
             using (SqlConnection con = new SqlConnection(cadena))
             {
-                SqlCommand cmd = new SqlCommand("Sp_registrar_vehiculo", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = v.nombre;
-                cmd.Parameters.Add("@color", SqlDbType.VarChar).Value = v.color;
-                cmd.Parameters.Add("@anio", SqlDbType.VarChar).Value = v.anio;
-                cmd.Parameters.Add("@marca", SqlDbType.VarChar).Value = v.marca;
-                cmd.Parameters.Add("@dominio", SqlDbType.VarChar).Value = v.dominio;
-                con.Open();
-                cmd.ExecuteNonQuery();
+                Vehiculo vh = new Vehiculo();
+                vh = GetVehiculo(v.dominio);
+                if (vh==null)
+                {
+                    bandera = true;
+                    SqlCommand cmd = new SqlCommand("Sp_registrar_vehiculo", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = v.nombre;
+                    cmd.Parameters.Add("@color", SqlDbType.VarChar).Value = v.color;
+                    cmd.Parameters.Add("@anio", SqlDbType.VarChar).Value = v.anio;
+                    cmd.Parameters.Add("@marca", SqlDbType.VarChar).Value = v.marca;
+                    cmd.Parameters.Add("@dominio", SqlDbType.VarChar).Value = v.dominio;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    bandera = false;
+                }
             }
+
+            return bandera;
         }
 
 

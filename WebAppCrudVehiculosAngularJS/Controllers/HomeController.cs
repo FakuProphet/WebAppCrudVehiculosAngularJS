@@ -20,11 +20,18 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
         {
 
             string resultado = string.Empty;
+
             try
             {
-                if(ModelState.IsValid)
-                new Gestor().agregarVehiculos(v);
-                resultado = "Registro exitoso";
+                bool valido = new Gestor().agregarVehiculos(v);
+                if (valido)
+                {
+                    resultado = "Registro exitoso";
+                }
+                else
+                {
+                    resultado = "Dominio ya registrado";
+                }
             }
             catch (System.Exception)
             {

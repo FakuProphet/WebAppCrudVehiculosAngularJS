@@ -1,18 +1,19 @@
-﻿angular.module('app')
+﻿    angular.module('miApp',[])
     .controller('HomeController', function ($scope, $http) {
 
-        $scope.btnText = "Save";
+        $scope.btn = "Save";
         $scope.saveData = function () {
+            $scope.btn = "Wait...";
             $http({
                 method: 'POST',
                 url: '/Home/AgregarVehiculo',
                 data: $scope.Vehiculo
             }).then(function (response) {
-                $scope.btnText = "Save";
+                $scope.btn = "Save";
                 data: $scope.Vehiculo = null;
-                alert(response);
-            }, function (error) {
-                alert(error);
+                alert(response.data);
+            }).error (function() {
+                alert('Error');
             })
 
         }
