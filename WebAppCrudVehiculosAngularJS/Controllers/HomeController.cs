@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
 using System.Web.Mvc;
+using WebAppCrudVehiculosAngularJS.Models;
 
 namespace WebAppCrudVehiculosAngularJS.Controllers
 {
@@ -13,18 +11,31 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Listado()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public JsonResult AgregarVehiculo(Vehiculo v)
         {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
+            string resultado = string.Empty;
+            try
+            {
+                if(ModelState.IsValid)
+                new Gestor().agregarVehiculos(v);
+                resultado = "Registro exitoso";
+
+            }
+            catch (System.Exception)
+            {
+                resultado = "Falla";
+            }
+
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+            
         }
+
+
     }
 }
