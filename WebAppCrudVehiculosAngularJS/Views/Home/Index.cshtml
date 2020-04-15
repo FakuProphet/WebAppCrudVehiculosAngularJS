@@ -1,7 +1,5 @@
 ﻿
-
 <!DOCTYPE html>
-
 <html ng-app="miApp">
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -9,39 +7,34 @@
     <title>Registrar Vehiculo</title>
 </head>
 <body ng-controller="HomeController">
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text" ng-model="Vehiculo.nombre" />
-                </div>
-                <div class="form-group">
-                    <label>Marca</label>
-                    <input type="text" ng-model="Vehiculo.marca" />
-                </div>
-                <div class="form-group">
-                    <label>Color</label>
-                    <input type="text" ng-model="Vehiculo.color" />
-                </div>
-                <div class="form-group">
-                    <label>Anio</label>
-                    <input type="text" ng-model="Vehiculo.anio" />
-                </div>
-                <div class="form-group">
-                    <label>Dominio</label>
-                    <input type="text" ng-model="Vehiculo.dominio" />
-                </div>
-                <div class="form-group">
-                    <input type="button" class="btn btn-primary" ng-click="saveData()" value="{{btn}}" />
-                </div>
-            </div>
-            <div class="col-sm-2"></div>
+
+    <form>
+
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" ng-model="Vehiculo.nombre" placeholder="Ingrese el nombre del vehiculo">
         </div>
-    </div>
-    
+        <div class="form-group">
+            <label for="marca">Marca</label>
+            <input type="text" class="form-control" ng-model="Vehiculo.marca" placeholder="Marca del vehiculo">
+        </div>
+        <div class="form-group">
+            <label for="color">Color</label>
+            <input type="text" class="form-control" ng-model="Vehiculo.color" placeholder="Indicar el color">
+        </div>
+        <div class="form-group">
+            <label for="anio">Anio</label>
+            <input type="text" class="form-control" ng-model="Vehiculo.anio" placeholder="Indicar el anio">
+        </div>
+        <div class="form-group">
+            <label for="dominio">Dominio</label>
+            <input type="text" class="form-control" ng-model="Vehiculo.dominio" placeholder="Indicar el anio">
+        </div>
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" ng-click="saveData()" value="{{btn}}" />
+        </div>
+    </form>
+
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/AngularController/Home.js"></script>
 </body>
