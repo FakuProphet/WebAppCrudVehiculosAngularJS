@@ -25,7 +25,6 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
                 if(ModelState.IsValid)
                 new Gestor().agregarVehiculos(v);
                 resultado = "Registro exitoso";
-
             }
             catch (System.Exception)
             {
