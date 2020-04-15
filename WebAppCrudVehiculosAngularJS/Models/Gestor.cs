@@ -47,13 +47,10 @@ namespace WebAppCrudVehiculosAngularJS.Models
                     miVehiculo.color = color;
                     miVehiculo.anio = anio;
                     miVehiculo.dominio = dom;
-                    
+                   
                 }
             }
-
-
             return miVehiculo;
-
         }
 
 
@@ -62,7 +59,7 @@ namespace WebAppCrudVehiculosAngularJS.Models
         {
             using (SqlConnection con = new SqlConnection(cadena))
             {
-                SqlCommand cmd = new SqlCommand("", con);
+                SqlCommand cmd = new SqlCommand("Sp_registrar_vehiculo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = v.nombre;
                 cmd.Parameters.Add("@color", SqlDbType.VarChar).Value = v.color;
@@ -73,6 +70,25 @@ namespace WebAppCrudVehiculosAngularJS.Models
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+        public void ActualizarRegistro(Vehiculo v)
+        {
+            using (SqlConnection con = new SqlConnection(cadena))
+            {
+                SqlCommand cmd = new SqlCommand("Sp_actualizar_registro_vehiculo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = v.nombre;
+                cmd.Parameters.Add("@marca", SqlDbType.VarChar).Value = v.marca;
+                cmd.Parameters.Add("@anio", SqlDbType.VarChar).Value = v.anio;
+                cmd.Parameters.Add("@color", SqlDbType.VarChar).Value = v.color;
+                cmd.Parameters.Add("@dominio", SqlDbType.VarChar).Value = v.dominio;
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
 
     }
 }
