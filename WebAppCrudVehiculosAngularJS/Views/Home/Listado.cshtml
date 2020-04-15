@@ -1,23 +1,18 @@
-﻿
-
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html ng-app="miApp">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Listado</title>
+    <title> Hola listado</title>
 </head>
-<body ng-controller="HomeAngularController" >
-    
-    <table>
-        <tr>
-            <th>Nombre</th>
-        </tr>
-       
-    </table>
-            
-
+<body ng-controller="HomeAngularController">
+    <ul>
+        <li ng-repeat="v in vehiculos">
+            <h2>Nombre</h2>
+            <p>
+                {{v.nombre}}
+            </p>
+        </li>
+    </ul>
     <script src="~/Scripts/angular.min.js"></script>
-   
+    <script src="~/Scripts/AngularController/Home.js"></script>
 </body>
 </html>

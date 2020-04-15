@@ -22,7 +22,7 @@
         $scope.vehiculos = [];
         $http({
             method: 'GET',
-            url: '/Home/Listado'
+            url: '/Home/GetListado'
 
         }).then(function (response) {
             console.log(response.data);

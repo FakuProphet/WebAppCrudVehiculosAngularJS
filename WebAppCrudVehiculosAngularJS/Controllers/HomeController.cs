@@ -12,7 +12,12 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
             return View();
         }
 
-        public JsonResult Listado()
+        public ActionResult Listado()
+        {
+            return View();
+        }
+
+        public JsonResult GetListado()
         {
             List<Vehiculo> lista = new List<Vehiculo>();
             try
