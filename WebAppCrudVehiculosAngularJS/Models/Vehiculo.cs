@@ -12,5 +12,6 @@ namespace WebAppCrudVehiculosAngularJS.Models
         public string nombre { get; set; }
         public string color { get; set; }
         public string anio { get; set; }
+        public string dominio { get; set; }
     }
 }
