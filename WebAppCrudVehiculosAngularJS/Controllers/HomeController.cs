@@ -18,7 +18,7 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
         }
 
 
-        public ActionResult Actualizar()
+        public ActionResult Actualizar(int id)
         {
             return View();
         }
@@ -37,7 +37,19 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
             return Json(v, JsonRequestBehavior.AllowGet);
         }
 
-
+        public JsonResult GetVehiculoById(int id)
+        {
+            Vehiculo v = new Vehiculo();
+            try
+            {
+                v = new Gestor().GetVehiculoById(id);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            return Json(v, JsonRequestBehavior.AllowGet);
+        }
 
 
         public JsonResult GetListado()

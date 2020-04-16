@@ -1,5 +1,5 @@
-﻿    angular.module('miApp',[])
-    .controller('HomeAngularController', function ($scope, $http) {
+﻿angular.module('miApp', [])
+    .controller('HomeUpdateAngularController', function ($scope, $http) {
 
         $scope.btn = "Save";
         $scope.saveData = function () {
@@ -17,34 +17,20 @@
             })
 
         };
-
-
-        $scope.vehiculos = [];
-        $http({
-            method: 'GET',
-            url: '/Home/GetListado'
-
-        }).then(function (response) {
-            console.log(response.data);
-            $scope.vehiculos = response.data;
-        }, function (error) {
-
-        });
-
-
-        $scope.getVehiculo = function (dominio) {
+      
+        $scope.getVehiculo = function (id) {
             $http({
                 method: 'GET',
-                url: "/Home/GetVehiculo?dominio=" + dominio
+                url: "/Home/GetVehiculoById?id=" + id
             }).then(function (response) {
                 console.log(response.data);
-                $scope.vehiculo = response.data[0];
+                $scope.vehiculo = response.data;
             }, function (error) {
 
             });
 
         };
-        
-        
+
+
 
     });

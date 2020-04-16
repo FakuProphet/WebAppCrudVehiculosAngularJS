@@ -23,6 +23,39 @@ namespace WebAppCrudVehiculosAngularJS.Models
         }
 
 
+        public Vehiculo GetVehiculoById(int id)
+        {
+
+            Vehiculo miVehiculo = null;
+            using (SqlConnection con = new SqlConnection(cadena))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("Sp_get_registro_vehiculo_by_id", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+                SqlDataReader dr = com.ExecuteReader();
+                if (dr.Read())
+                {
+                    miVehiculo = new Vehiculo();
+                    int clave = dr.GetInt32(0);
+                    string marca = dr.GetString(2);
+                    string nombre = dr.GetString(1);
+                    string anio = dr.GetString(4);
+                    string dom = dr.GetString(5);
+                    string color = dr.GetString(3);
+                    miVehiculo.nombre = nombre;
+                    miVehiculo.marca = marca;
+                    miVehiculo.color = color;
+                    miVehiculo.anio = anio;
+                    miVehiculo.dominio = dom;
+                    miVehiculo.id = clave;
+                   
+                }
+            }
+            return miVehiculo;
+        }
+
         public Vehiculo GetVehiculo(string dominio)
         {
 
@@ -38,6 +71,7 @@ namespace WebAppCrudVehiculosAngularJS.Models
                 if (dr.Read())
                 {
                     miVehiculo = new Vehiculo();
+                    int clave = dr.GetInt32(0);
                     string marca = dr.GetString(2);
                     string nombre = dr.GetString(1);
                     string anio = dr.GetString(4);
@@ -48,7 +82,8 @@ namespace WebAppCrudVehiculosAngularJS.Models
                     miVehiculo.color = color;
                     miVehiculo.anio = anio;
                     miVehiculo.dominio = dom;
-                   
+                    miVehiculo.id = clave;
+
                 }
             }
             return miVehiculo;
