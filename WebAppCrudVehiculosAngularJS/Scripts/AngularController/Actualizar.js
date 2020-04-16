@@ -31,7 +31,7 @@
                 url: "/Home/GetVehiculoById?id=" + id
             }).then(function (response) {
                 console.log(response.data);
-                var yourId = $location.search().id;
+                $scope.miId = $location.search().id;
                 console.log(id + ' Esta es mi id');
                 $scope.vehiculo = response.data;
             }, function (error) {
