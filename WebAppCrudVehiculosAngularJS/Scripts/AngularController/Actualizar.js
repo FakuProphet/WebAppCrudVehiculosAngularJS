@@ -27,15 +27,16 @@
 
 
         
-        $scope.getVehiculo = function () {
+        $scope.getVehiculo = function (id) {
             $http({
                 method: 'GET',
-                url:$location.search().id
+                url: '/Home/GetVehiculoById?=id'+id
+                
             }).then(function (response) {
                 console.log(response.data);
-                
+                //$location.search().
                 //$scope.clave = miId;
-                console.log($location.search().id + ' Esta es mi id');
+                console.log(id + ' Esta es mi id');
                 $scope.vehiculo = response.data;
             }, function (error) {
 

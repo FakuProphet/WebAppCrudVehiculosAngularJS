@@ -6,10 +6,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <base href="http://localhost:58572/Home/Actualizar?" />
+   
     <title>Actualizar</title>
 </head>
-<body ng-init="getVehiculo()" ng-controller="HomeUpdateAngularController">
+<body ng-init="getVehiculo(@Convert.ToInt32(Request.QueryString["id"]))" ng-controller="HomeUpdateAngularController">
     <form>
 
         <div class="form-group">
