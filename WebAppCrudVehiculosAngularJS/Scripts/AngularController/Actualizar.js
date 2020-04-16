@@ -24,16 +24,18 @@
             })
 
         };
-      
-        $scope.getVehiculo = function (id) {
+
+
+        
+        $scope.getVehiculo = function () {
             $http({
                 method: 'GET',
-                url: "/Home/GetVehiculoById?id=" + id
+                url:$location.search().id
             }).then(function (response) {
                 console.log(response.data);
-                $location.search().id;
+                
                 //$scope.clave = miId;
-                console.log(id + ' Esta es mi id');
+                console.log($location.search().id + ' Esta es mi id');
                 $scope.vehiculo = response.data;
             }, function (error) {
 
