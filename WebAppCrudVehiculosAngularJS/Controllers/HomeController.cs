@@ -58,7 +58,7 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
             List<Vehiculo> lista = new List<Vehiculo>();
             try
             {
-                lista = new Gestor().GetVehiculoListado();
+                lista = new Gestor().GetVehiculosListado();
             }
             catch (System.Exception)
             {

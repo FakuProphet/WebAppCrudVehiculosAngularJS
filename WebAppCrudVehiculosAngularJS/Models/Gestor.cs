@@ -91,7 +91,7 @@ namespace WebAppCrudVehiculosAngularJS.Models
 
 
 
-        public List<Vehiculo> GetVehiculoListado()
+        public List<Vehiculo> GetVehiculosListado()
         {
 
             List<Vehiculo> listado = new List<Vehiculo>();
