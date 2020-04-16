@@ -32,7 +32,8 @@
             }).then(function (response) {
                 console.log(response.data);
                 var miId = $location.search().id;
-                console.log(miId + ' Esta es mi id');
+                //$scope.clave = miId;
+               // console.log(miId + ' Esta es mi id');
                 $scope.vehiculo = response.data;
             }, function (error) {
 
