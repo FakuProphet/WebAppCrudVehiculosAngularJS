@@ -1,0 +1,42 @@
+﻿
+
+<!DOCTYPE html>
+
+<html ng-app="miApp">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Actualizar</title>
+</head>
+<body ng-controller="HomeAngularController" data-ng-init="getVehiculo()">
+    <form>
+
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" ng-model="vehiculo.nombre" placeholder="Ingrese el nombre del vehiculo">
+        </div>
+        <div class="form-group">
+            <label for="marca">Marca</label>
+            <input type="text" class="form-control" ng-model="vehiculo.marca" placeholder="Marca del vehiculo">
+        </div>
+        <div class="form-group">
+            <label for="color">Color</label>
+            <input type="text" class="form-control" ng-model="vehiculo.color" placeholder="Indicar el color">
+        </div>
+        <div class="form-group">
+            <label for="anio">Anio</label>
+            <input type="text" class="form-control" ng-model="vehiculo.anio" placeholder="Indicar el anio">
+        </div>
+        <div class="form-group">
+            <label for="dominio">Dominio</label>
+            <input type="text" class="form-control" ng-model="vehiculo.dominio" placeholder="Indicar el anio">
+        </div>
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" ng-click="" value="{{btn}}" />
+        </div>
+    </form>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/AngularController/Home.js"></script>
+</body>
+</html>

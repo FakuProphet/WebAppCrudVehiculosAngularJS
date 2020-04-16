@@ -32,6 +32,19 @@
         });
 
 
+        $scope.getVehiculo = function (dominio) {
+        $http({
+            method: 'GET',
+            url: '/Home/GetVehiculo?dominio=' + dominio
+        }).then(function (response) {
+            console.log(response.data);
+            $scope.vehiculo = response.data[0];
+        }, function (error) {
+
+        });
+
+        }
+        
 
 
     });

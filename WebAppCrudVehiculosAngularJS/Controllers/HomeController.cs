@@ -17,6 +17,29 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
             return View();
         }
 
+
+        public ActionResult Actualizar()
+        {
+            return View();
+        }
+
+        public JsonResult GetVehiculo(string dominio)
+        {
+            Vehiculo v = new Vehiculo();
+            try
+            {
+                v = new Gestor().GetVehiculo(dominio);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            return Json(v, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
         public JsonResult GetListado()
         {
             List<Vehiculo> lista = new List<Vehiculo>();

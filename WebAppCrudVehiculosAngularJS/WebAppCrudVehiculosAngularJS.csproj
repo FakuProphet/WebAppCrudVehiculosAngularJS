@@ -948,6 +948,7 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Listado.cshtml" />
+    <Content Include="Views\Home\Actualizar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
