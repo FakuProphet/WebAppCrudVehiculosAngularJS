@@ -30,7 +30,7 @@
         $scope.getVehiculo = function (id) {
             $http({
                 method: 'GET',
-                url: '/Home/GetVehiculoById?=id'+id
+                url: '/Home/GetVehiculoById?id='+id
                 
             }).then(function (response) {
                 console.log(response.data);
