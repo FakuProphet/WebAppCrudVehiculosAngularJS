@@ -10,11 +10,11 @@
     <title>Actualizar</title>
 </head>
 <body ng-init="getVehiculo(@Convert.ToInt32(Request.QueryString["id"]))" ng-controller="HomeUpdateAngularController">
-    <form >
+    <form>
 
         <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" ng-model="vehiculo.nombre" >
+            <input type="text" class="form-control" ng-model="vehiculo.nombre">
         </div>
         <div class="form-group">
             <label for="marca">Marca</label>
@@ -36,8 +36,7 @@
             <input type="button" class="btn btn-primary" ng-click="" value="{{btn}}" />
         </div>
     </form>
-
-
+    <h2>..........................</h2>
     <h2 ng-model="miId">{{miId}}</h2>
 
     <script src="~/Scripts/angular.min.js"></script>
