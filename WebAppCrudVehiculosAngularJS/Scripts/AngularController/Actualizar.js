@@ -26,7 +26,7 @@
         };
 
 
-        //@Convert.ToInt32(Request.QueryString["id"])
+        
         const ob =getUrlParameters()
         
         $scope.getVehiculo = function () {
@@ -36,11 +36,6 @@
                 
             }).then(function (response) {
                 console.log(response.data);
-               // var miid = $location.search().id
-                //$scope.clave = miId;
-                
-               // console.log(id + ' Esta es mi id');
-               // console.log(miid + ' Esta es mi id por location');
                 console.log(Object.values(ob) + ' Esta es mi id por metodo');
                 $scope.vehiculo = response.data;
             }, function (error) {
