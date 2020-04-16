@@ -2,16 +2,33 @@
 <html ng-app="miApp">
 <head>
     <title> Hola listado</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body ng-controller="HomeAngularController">
-    <ul>
-        <li ng-repeat="v in vehiculos">
-            <h2>Nombre</h2>
-            <p>
-                {{v.nombre}}
-            </p>
-        </li>
-    </ul>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Anio</th>
+                <th scope="col">Color</th>
+                <th scope="col">Dominio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="v in vehiculos">
+                <th scope="row">{{v.id}}</th>
+                <td>{{v.nombre}}</td>
+                <td>{{v.marca}}</td>
+                <td>{{v.anio}}</td>
+                <td>{{v.color}}</td>
+                <td>{{v.dominio}}</td>
+                <td><a href="/Home/ActualizarRegistro?dominio={{v.dominio}}">Update</a></td>
+                <td><a href="/Home/EliminarRegistro?dominio={{v.dominio}}">Delete</a></td>
+            </tr>       
+        </tbody>
+    </table>
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/AngularController/Home.js"></script>
 </body>
