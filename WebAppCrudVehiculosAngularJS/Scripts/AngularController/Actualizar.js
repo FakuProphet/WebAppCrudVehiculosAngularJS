@@ -1,5 +1,12 @@
-﻿angular.module('miApp', [])
-    .controller('HomeUpdateAngularController', function ($scope, $http) {
+﻿var app = angular.module('miApp', []);
+
+    
+    app.controller('HomeUpdateAngularController', function ($scope, $http, $location) {
+
+
+        app.config(['$locationProvider', function ($locationProvider) {
+            $locationProvider.html5Mode(true);
+        }]);
 
         $scope.btn = "Save";
         $scope.saveData = function () {
@@ -24,6 +31,8 @@
                 url: "/Home/GetVehiculoById?id=" + id
             }).then(function (response) {
                 console.log(response.data);
+                var yourId = $location.search().id;
+                console.log(id + ' Esta es mi id');
                 $scope.vehiculo = response.data;
             }, function (error) {
 
@@ -31,6 +40,18 @@
 
         };
 
+        function getUrlParameters() {
+            var pairs = window.location.search.substring(1).split(/[&?]/);
+            var res = {}, i, pair;
+            for (i = 0; i < pairs.length; i++) {
+                pair = pairs[i].split('=');
+                if (pair[1])
+                    res[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+            }
+            return res;
+        }
 
+        console.log(getUrlParameters() + ' Esta es mi url');
 
+      
     });

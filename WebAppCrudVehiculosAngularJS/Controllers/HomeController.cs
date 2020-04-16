@@ -14,6 +14,7 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
 
         public ActionResult Listado()
         {
+            
             return View();
         }
 
