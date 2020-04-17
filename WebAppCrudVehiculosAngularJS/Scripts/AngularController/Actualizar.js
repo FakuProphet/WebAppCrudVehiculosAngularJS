@@ -19,7 +19,7 @@
                 $scope.btn = "Save";
                 data: $scope.Vehiculo = null;
                 alert(response.data);
-                $location.path("/Home/Listado");
+                window.location.href = "/Home/Listado";
             }).error(function () {
                 alert('Error');
             })
@@ -38,7 +38,7 @@
             }).then(function (response) {
                 console.log(response.data);
                 console.log(Object.values(ob) + ' Esta es mi id por metodo');
-                $scope.vehiculo = response.data;
+                $scope.Vehiculo = response.data;
             }, function (error) {
 
             });

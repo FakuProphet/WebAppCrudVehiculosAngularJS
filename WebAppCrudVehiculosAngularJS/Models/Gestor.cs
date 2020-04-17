@@ -174,7 +174,7 @@ namespace WebAppCrudVehiculosAngularJS.Models
                 cmd.Parameters.Add("@color", SqlDbType.VarChar).Value = v.color;
                 cmd.Parameters.Add("@dominio", SqlDbType.VarChar).Value = v.dominio;
                 con.Open();
-                cmd.ExecuteNonQuery();
+                int valor = cmd.ExecuteNonQuery();
             }
         }
 
