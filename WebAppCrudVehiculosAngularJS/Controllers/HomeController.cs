@@ -25,10 +25,31 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
         }
 
 
-        public ActionResult Actualizar(int id)
+        public ActionResult Actualizar()
         {
             return View();
         }
+
+
+        public JsonResult ActualizarVehiculo(Vehiculo v)
+        {
+
+            string resultado = string.Empty;
+
+            try
+            {
+                new Gestor().ActualizarRegistro(v);
+                resultado = "Updated";
+            }
+            catch (System.Exception)
+            {
+                resultado = "Falla";
+            }
+
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+
+        }
+
 
         public JsonResult GetVehiculo(string dominio)
         {

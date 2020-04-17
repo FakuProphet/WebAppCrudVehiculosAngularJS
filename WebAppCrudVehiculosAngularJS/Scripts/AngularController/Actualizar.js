@@ -13,7 +13,7 @@
             $scope.btn = "Wait...";
             $http({
                 method: 'POST',
-                url: '/Home/AgregarVehiculo',
+                url: '/Home/ActualizarVehiculo',
                 data: $scope.Vehiculo
             }).then(function (response) {
                 $scope.btn = "Save";
