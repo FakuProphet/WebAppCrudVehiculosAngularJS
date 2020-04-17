@@ -19,6 +19,7 @@
                 $scope.btn = "Save";
                 data: $scope.Vehiculo = null;
                 alert(response.data);
+                $location.path("/Home/Listado");
             }).error(function () {
                 alert('Error');
             })

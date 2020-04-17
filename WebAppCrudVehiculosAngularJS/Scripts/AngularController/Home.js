@@ -1,5 +1,5 @@
 ﻿    angular.module('miApp',[])
-    .controller('HomeAngularController', function ($scope, $http) {
+    .controller('HomeAngularController', function ($scope, $http,$location) {
 
         $scope.btn = "Save";
         $scope.saveData = function () {
@@ -12,6 +12,7 @@
                 $scope.btn = "Save";
                 data: $scope.Vehiculo = null;
                 alert(response.data);
+                window.location.href = "/Home/Listado";
             }).error(function () {
                 alert('Error');
             })
@@ -19,21 +20,7 @@
         };
 
 
-        $scope.updateData = function () {
-            $scope.btn = "Wait...";
-            $http({
-                method: 'POST',
-                url: '',
-                data: $scope.Vehiculo
-            }).then(function (response) {
-                $scope.btn = "Save";
-                data: $scope.Vehiculo = null;
-                alert(response.data);
-            }).error(function () {
-                alert('Error');
-            })
-
-        };
+       
 
 
 

@@ -18,6 +18,12 @@ namespace WebAppCrudVehiculosAngularJS.Controllers
             return View();
         }
 
+        public ActionResult Eliminar(string dominio)
+        {
+            new Gestor().Delete_registro_vehiculo(dominio);
+            return RedirectToAction("Listado");
+        }
+
 
         public ActionResult Actualizar(int id)
         {
